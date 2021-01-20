@@ -10,10 +10,10 @@ module.exports = (app, mainWindow, newVersion) => {
     ...(process.platform === 'darwin' ? [{ role: 'appMenu' }] : []),
 
     {
-      label: 'File',
+      label: '文件',
       submenu: [
         {
-          label: 'Open',
+          label: '打开',
           accelerator: 'CmdOrCtrl+O',
           async click() {
             const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] });
@@ -22,7 +22,7 @@ module.exports = (app, mainWindow, newVersion) => {
           },
         },
         {
-          label: 'Close',
+          label: '关闭',
           accelerator: 'CmdOrCtrl+W',
           async click() {
             mainWindow.webContents.send('close-file');
@@ -30,19 +30,19 @@ module.exports = (app, mainWindow, newVersion) => {
         },
         { type: 'separator' },
         {
-          label: 'Load project (CSV)',
+          label: '打开项目 (CSV)',
           click() {
             mainWindow.webContents.send('importEdlFile', 'csv');
           },
         },
         {
-          label: 'Save project (CSV)',
+          label: '保存项目 (CSV)',
           click() {
             mainWindow.webContents.send('exportEdlFile', 'csv');
           },
         },
         {
-          label: 'Import project',
+          label: '导入项目',
           submenu: [
             {
               label: 'Text chapters / YouTube',
@@ -71,16 +71,16 @@ module.exports = (app, mainWindow, newVersion) => {
           ],
         },
         {
-          label: 'Export project',
+          label: '导出项目',
           submenu: [
             {
-              label: 'Timestamps (CSV)',
+              label: '时间戳 (CSV)',
               click() {
                 mainWindow.webContents.send('exportEdlFile', 'csv-human');
               },
             },
             {
-              label: 'Timestamps (TSV/TXT)',
+              label: '时间戳 (TSV/TXT)',
               click() {
                 mainWindow.webContents.send('exportEdlFile', 'tsv-human');
               },
@@ -89,13 +89,13 @@ module.exports = (app, mainWindow, newVersion) => {
         },
         { type: 'separator' },
         {
-          label: 'Convert to supported format',
+          label: '转换为支持的格式',
           click() {
             mainWindow.webContents.send('html5ify');
           },
         },
         {
-          label: 'Fix incorrect duration',
+          label: '修复错误的时长',
           click() {
             mainWindow.webContents.send('fixInvalidDuration');
           },
@@ -104,14 +104,14 @@ module.exports = (app, mainWindow, newVersion) => {
 
         { type: 'separator' },
         {
-          label: 'Settings',
+          label: '设置',
           click() {
             mainWindow.webContents.send('openSettings');
           },
         },
         { type: 'separator' },
         {
-          label: 'Exit',
+          label: '退出',
           click() {
             app.quit();
           },
@@ -120,17 +120,17 @@ module.exports = (app, mainWindow, newVersion) => {
     },
 
     {
-      label: 'Edit',
+      label: '编辑',
       submenu: [
         {
-          label: 'Undo',
+          label: '撤销',
           accelerator: 'CmdOrCtrl+Z',
           click() {
             mainWindow.webContents.send('undo');
           },
         },
         {
-          label: 'Redo',
+          label: '重做',
           accelerator: 'Shift+CmdOrCtrl+Z',
           click() {
             mainWindow.webContents.send('redo');
@@ -143,28 +143,28 @@ module.exports = (app, mainWindow, newVersion) => {
         { role: 'selectall' },
         { type: 'separator' },
         {
-          label: 'Segments',
+          label: '片段',
           submenu: [
             {
-              label: 'Clear all segments',
+              label: '清除所有片段',
               click() {
                 mainWindow.webContents.send('clearSegments');
               },
             },
             {
-              label: 'Reorder segments by start time',
+              label: '根据片段起始位置重新排序',
               click() {
                 mainWindow.webContents.send('reorderSegsByStartTime');
               },
             },
             {
-              label: 'Create num segments',
+              label: '创建多个片段并等分时间轴',
               click() {
                 mainWindow.webContents.send('createNumSegments');
               },
             },
             {
-              label: 'Create fixed duration segments',
+              label: '创建指定长度的片段并填充时间轴',
               click() {
                 mainWindow.webContents.send('createFixedDurationSegments');
               },
@@ -172,16 +172,16 @@ module.exports = (app, mainWindow, newVersion) => {
           ],
         },
         {
-          label: 'Tracks',
+          label: '轨道',
           submenu: [
             {
-              label: 'Extract all tracks',
+              label: '提取所有轨道',
               click() {
                 mainWindow.webContents.send('extract-all-streams');
               },
             },
             {
-              label: 'Edit tracks / metadata tags',
+              label: '编辑轨道/元数据标签',
               click() {
                 mainWindow.webContents.send('showStreamsSelector');
               },
@@ -192,7 +192,7 @@ module.exports = (app, mainWindow, newVersion) => {
     },
 
     {
-      label: 'View',
+      label: '视图',
       submenu: [
         { role: 'togglefullscreen' },
       ],
@@ -202,28 +202,28 @@ module.exports = (app, mainWindow, newVersion) => {
     ...(process.platform === 'darwin'
       ? [{ role: 'windowMenu' }]
       : [{
-        label: 'Window',
+        label: '窗口',
         submenu: [{ role: 'minimize' }],
       }]
     ),
 
     {
-      label: 'Tools',
+      label: '工具',
       submenu: [
         {
-          label: 'Merge files',
+          label: '合并视频',
           click() {
             mainWindow.webContents.send('show-merge-dialog', true);
           },
         },
         {
-          label: 'Batch convert to supported format',
+          label: '批量转换为支持的格式',
           click() {
             mainWindow.webContents.send('batchConvertFriendlyFormat');
           },
         },
         {
-          label: 'Set custom start offset/timecode',
+          label: '设置自定义的起始偏移量/时间码',
           click() {
             mainWindow.webContents.send('set-start-offset', true);
           },
@@ -235,23 +235,23 @@ module.exports = (app, mainWindow, newVersion) => {
       role: 'help',
       submenu: [
         {
-          label: 'Help and shortcuts',
+          label: '说明和快捷键介绍',
           click() {
             mainWindow.webContents.send('openHelp');
           },
         },
         {
-          label: 'About',
+          label: '关于',
           click() {
             mainWindow.webContents.send('openAbout');
           },
         },
         {
-          label: 'Learn More',
+          label: '了解更多',
           click() { electron.shell.openExternal(homepage); },
         },
         {
-          label: 'Report an error',
+          label: '汇报错误',
           click() { mainWindow.webContents.send('openSendReportDialog'); },
         },
       ],
