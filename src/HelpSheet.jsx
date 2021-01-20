@@ -24,12 +24,21 @@ const HelpSheet = memo(({ visible, onTogglePress, ffmpegCommandLog, currentCutSe
           {t('Lossless cutting is not an exact science. For some codecs and files it just works. For others you may need to trial and error depending on the codec, keyframes etc to get the best cut.')}
         </p>
         <ol>
-          <li>Try both <b>Keyframe cut</b> and <b>Normal cut</b> modes</li>
-          <li>Try to set the <b>start-</b>cutpoint a <b>few frames before or after</b> the nearest keyframe (may also solve audio sync issues)</li>
-          <li>Try to disable some <b>Tracks</b></li>
-          <li>Try a different <b>Output format</b></li>
-          <li>Try to enable the <b>Experimental Flag</b> in Settings</li>
+          <li>尝试 <b>关键帧剪切</b> 和 <b>普通剪切</b> 两种模式</li>
+          <li>尝试把 <b>起始</b>切割点设置于最近关键帧的 <b>几帧前或几帧后</b> (也许能同时解决某些音频同步问题)</li>
+          <li>尝试禁用某些 <b>轨道</b></li>
+          <li>尝试不同的 <b>输出格式</b></li>
+          <li>尝试开启在设置中开启 <b>实验标志</b></li>
         </ol>
+
+        <h1>剪切模式说明</h1>
+        <p>
+          上面提到的<b>关键帧</b>即时间轴中<b>位于黑色竖线</b>的视频帧。
+          若选择<b>关键帧剪切</b>，则每个片段实际输出的起始位置<b>不是时间轴上片段框的起始位置</b>，而是把片段框的前一个关键帧作为起始位置。片段的结束位置不受影响，仍然是准确的。（<b>注意</b>：当把关键帧设为起始位置时，软件可能不会把它而是前一个关键帧作为起始位置）
+          若选择<b>普通剪切</b>，则每个片段的起始与结束位置是<b>准确</b>的，但是由于开头缺少关键帧，片段的开头到下一个关键帧将<b>没有画面（或画面被定格为下一个关键帧）</b>。片段的结束部分不受影响，仍然是正常的画面。
+
+          一般推荐使用关键帧剪切。
+        </p>
 
         <p style={{ fontWeight: 'bold' }}>
           {t('For more help and issues, please go to:')}<br />

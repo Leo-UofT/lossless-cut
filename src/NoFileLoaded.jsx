@@ -16,15 +16,15 @@ const NoFileLoaded = memo(({ topBarHeight, bottomBarHeight, mifiLink, toggleHelp
       <div style={{ fontSize: '6vmin', textTransform: 'uppercase' }}>{t('DROP FILE(S)')}</div>
 
       <div style={{ fontSize: '4vmin', color: '#777', cursor: 'pointer' }} role="button" onClick={toggleHelp}>
-        Press <kbd>H</kbd> for help
+        按下 <kbd>H</kbd> 键获得帮助
       </div>
 
       <div style={{ fontSize: '3vmin', color: '#ccc' }}>
-        <SetCutpointButton currentCutSeg={currentCutSeg} side="start" Icon={FaHandPointLeft} style={{ verticalAlign: 'middle' }} /> <SetCutpointButton currentCutSeg={currentCutSeg} side="end" Icon={FaHandPointRight} style={{ verticalAlign: 'middle' }} /> or <kbd>I</kbd> <kbd>O</kbd> to set cutpoints
+        <SetCutpointButton currentCutSeg={currentCutSeg} side="start" Icon={FaHandPointLeft} style={{ verticalAlign: 'middle' }} /> <SetCutpointButton currentCutSeg={currentCutSeg} side="end" Icon={FaHandPointRight} style={{ verticalAlign: 'middle' }} /> 或 <kbd>I</kbd> <kbd>O</kbd> 来设置切割点
       </div>
 
       <div style={{ fontSize: '3vmin', color: '#ccc', cursor: 'pointer' }} role="button" onClick={toggleSimpleMode}>
-        <SimpleModeButton simpleMode={simpleMode} toggleSimpleMode={toggleSimpleMode} style={{ verticalAlign: 'middle' }} size={16} /> {simpleMode ? 'to show advanced view' : 'to show simple view'}
+        <SimpleModeButton simpleMode={simpleMode} toggleSimpleMode={toggleSimpleMode} style={{ verticalAlign: 'middle' }} size={16} /> {simpleMode ? '来显示高级视图' : '来显示简单视图'}
       </div>
 
 

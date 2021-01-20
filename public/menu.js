@@ -45,7 +45,7 @@ module.exports = (app, mainWindow, newVersion) => {
           label: '导入项目',
           submenu: [
             {
-              label: 'Text chapters / YouTube',
+              label: '文本章节 / YouTube',
               click() {
                 mainWindow.webContents.send('importEdlFile', 'youtube');
               },
@@ -57,13 +57,13 @@ module.exports = (app, mainWindow, newVersion) => {
               },
             },
             {
-              label: 'CUE sheet file',
+              label: 'CUE 脚本文件',
               click() {
                 mainWindow.webContents.send('importEdlFile', 'cue');
               },
             },
             {
-              label: 'PotPlayer Bookmarks (.pbf)',
+              label: 'PotPlayer书签 (.pbf)',
               click() {
                 mainWindow.webContents.send('importEdlFile', 'pbf');
               },
@@ -137,10 +137,10 @@ module.exports = (app, mainWindow, newVersion) => {
           },
         },
         { type: 'separator' },
-        { role: 'cut' },
-        { role: 'copy' },
-        { role: 'paste' },
-        { role: 'selectall' },
+        { label: '剪切', role: 'cut' },
+        { label: '复制', role: 'copy' },
+        { label: '粘贴', role: 'paste' },
+        { label: '全选', role: 'selectall' },
         { type: 'separator' },
         {
           label: '片段',
@@ -194,7 +194,7 @@ module.exports = (app, mainWindow, newVersion) => {
     {
       label: '视图',
       submenu: [
-        { role: 'togglefullscreen' },
+        { label: '切换全屏模式', role: 'togglefullscreen' },
       ],
     },
 
@@ -203,7 +203,7 @@ module.exports = (app, mainWindow, newVersion) => {
       ? [{ role: 'windowMenu' }]
       : [{
         label: '窗口',
-        submenu: [{ role: 'minimize' }],
+        submenu: [{ label: '最小化', role: 'minimize' }],
       }]
     ),
 
@@ -232,6 +232,7 @@ module.exports = (app, mainWindow, newVersion) => {
       ],
     },
     {
+      label: '帮助',
       role: 'help',
       submenu: [
         {
@@ -260,10 +261,10 @@ module.exports = (app, mainWindow, newVersion) => {
 
   if (newVersion) {
     menu.push({
-      label: 'New version!',
+      label: '新版本!',
       submenu: [
         {
-          label: `Download ${newVersion}`,
+          label: `下载 ${newVersion}`,
           click() { electron.shell.openExternal(releasesPage); },
         },
       ],

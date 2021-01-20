@@ -118,7 +118,7 @@ const ExportConfirm = memo(({
                     <HelpIcon onClick={onOutFmtHelpPress} />
                   </li>
                   <li>
-                    <Trans>Input has {{ numStreamsTotal }} tracks - <Highlight style={{ cursor: 'pointer' }} onClick={() => setStreamsSelectorShown(true)}>Keeping {{ numStreamsToCopy }} tracks</Highlight></Trans>
+                    <Trans>输入文件有 {{ numStreamsTotal }} 条轨道 - <Highlight style={{ cursor: 'pointer' }} onClick={() => setStreamsSelectorShown(true)}>保留 {{ numStreamsToCopy }} 条轨道</Highlight></Trans>
                     <HelpIcon onClick={onTracksHelpPress} />
                   </li>
                   <li>
