@@ -228,7 +228,7 @@ module.exports = (app, mainWindow, newVersion) => {
             mainWindow.webContents.send('set-start-offset', true);
           },
         },
-        { role: 'toggleDevTools' },
+        { label: '切换开发工具', role: 'toggleDevTools' },
       ],
     },
     {
