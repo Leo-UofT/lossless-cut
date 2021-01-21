@@ -306,6 +306,7 @@
     "Close file and clean up": "关闭文件并清理",
     "Show export options screen before exporting?": "导出前显示导出选项界面？",
     "Cut at the nearest keyframe (not accurate time.) Equiv to": "在分段起始时间的前一个关键帧位置进行剪切 (而非准确的起始时间)。等同于",
+    "Accurate time but could leave an empty portion at the beginning of the video. Equiv to": "准确的起始时间，但在视频开头（即片段开头到下一关键帧）留有空白部分。等同于",
     "Auto delete segment files after merge?": "合并后自动删除片段文件？",
     "Auto load timecode from file as an offset in the timeline?": "自动从文件中加载时间码作为时间轴的偏移量？",
     "Auto load timecode": "自动加载时间码",
@@ -324,5 +325,12 @@
     "Enable this to allow faster playback of the resulting file. This may cause processing to take a little longer": "启用这个选项让输出文件能更快的进行回放。这可能会导致处理时多花一点时间",
     "Show this page before exporting?": "在输出前显示此页面？",
     "Other operations": "其他操作",
-    "Change rotation": "改变旋转方向"
+    "Change rotation": "改变旋转方向",
+    "Export seg {{segNum}}": "导出片段 {{segNum}}",
+    "Export only the currently selected segment ({{segNum}})": "仅导出当前选中的片段 ({{segNum}})",
+    "Auto delete segments": "自动删除片段",
+    "This file is not natively supported. Creating a preview file...": "此文件不被原生支持。正在创建预览文件...",
+    "Fixing file duration": "正在修复文件时长",
+    "When merging, do you want to create chapters in the merged file, according to the cut segments? NOTE: This may dramatically increase processing time": "当合并时，是否根据分段来创建章节？注意：这可能大幅增加处理时间",
+    "When merging, do you want to preserve metadata from your original file? NOTE: This may dramatically increase processing time": "当合并时，是否保留原文件中的元数据？注意：这可能大幅增加处理时间"
 }
