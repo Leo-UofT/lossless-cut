@@ -31,15 +31,6 @@ const HelpSheet = memo(({ visible, onTogglePress, ffmpegCommandLog, currentCutSe
           <li>尝试开启在设置中开启 <b>实验标志</b></li>
         </ol>
 
-        <h1>剪切模式说明</h1>
-        <p>
-          上面提到的<b>关键帧</b>即时间轴中<b>位于黑色竖线</b>的视频帧。<br />
-          若选择<b>关键帧剪切</b>，则每个片段实际输出的起始位置<b>不是时间轴上片段框的起始位置</b>，而是把片段框的前一个关键帧作为起始位置。片段的结束位置不受影响，仍然是准确的。（<b>注意</b>：当把关键帧设为起始位置时，软件可能不会把它而是前一个关键帧作为起始位置）<br />
-          若选择<b>普通剪切</b>，则每个片段的起始与结束位置是<b>准确</b>的，但是由于开头缺少关键帧，片段的开头到下一个关键帧将<b>没有画面（或画面被定格为下一个关键帧）</b>。片段的结束部分不受影响，仍然是正常的画面。<br />
-
-          一般推荐使用关键帧剪切。
-        </p>
-
         <p style={{ fontWeight: 'bold' }}>
           {t('For more help and issues, please go to:')}<br />
           <span style={{ color: primaryTextColor, cursor: 'pointer' }} role="button" onClick={() => electron.shell.openExternal(githubLink)}>{githubLink}</span>
@@ -94,6 +85,14 @@ const HelpSheet = memo(({ visible, onTogglePress, ffmpegCommandLog, currentCutSe
         <div><kbd>D</kbd> {t('Delete source file')}</div>
 
         <p style={{ fontWeight: 'bold' }}>{t('Hover mouse over buttons in the main interface to see which function they have')}</p>
+
+        <h1>剪切模式说明</h1>
+        <p>
+          <b>关键帧</b>即时间轴中位于<b>黑色竖线</b>的视频帧。<br /><br />
+          若选择<b>关键帧剪切</b>，则每个片段实际输出的起始位置<b>不是时间轴上片段框的起始位置</b>，而是把片段框的前一个关键帧作为起始位置。片段的结束位置不受影响，仍然是准确的。（<b>注意</b>：当把起始位置设在关键帧处时，软件可能不会把当前关键帧而是前一个关键帧作为起始位置）<br /><br />
+          若选择<b>普通剪切</b>，则每个片段的起始与结束位置是<b>准确</b>的，但是由于开头缺少关键帧，片段的开头到下一个关键帧将保留空白画面，通常显示为开头画面被定格到下一个关键帧。片段的结尾部分不受影响，仍然是正常的画面。<br /><br />
+          一般推荐使用<b>关键帧剪切</b>。一般视频
+        </p>
 
         <h1 style={{ marginTop: 40 }}>{t('Last ffmpeg commands')}</h1>
         {ffmpegCommandLog.length > 0 ? (

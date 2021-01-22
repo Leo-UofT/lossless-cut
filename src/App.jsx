@@ -1709,8 +1709,8 @@ const App = memo(() => {
     function openAbout() {
       Swal.fire({
         icon: 'info',
-        title: 'About LosslessCut',
-        text: `You are running version ${app.getVersion()}`,
+        title: '关于LosslessCut',
+        text: `你正在运行版本 ${app.getVersion()}`,
       });
     }
 
