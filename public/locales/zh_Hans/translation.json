@@ -313,7 +313,7 @@
     "Hide informational notifications?": "隐藏信息性的通知？",
     "Check to hide notifications": "勾选来隐藏通知",
     "Advanced view disabled. You will now see only the most essential buttons and functions": "高级视图已禁用。你将只能看到主要的按钮及功能",
-    "Advanced view has been enabled. You will now also see non-essential buttons and functions": "高级视图已启用。你现在也能看到非主要按钮及功能",
+    "Advanced view has been enabled. You will now also see non-essential buttons and functions": "高级视图已启用。你现在能同时看到非主要按钮及功能",
     "Export options": "导出选项",
     "Merge {{segments}} cut segments to one file?": "合并 {{segments}} 个切割分段为一个文件？",
     "Create chapters from merged segments? (slow)": "根据分段为合并后的文件创建章节？（慢）",

@@ -1620,7 +1620,7 @@ const App = memo(() => {
 
     function showToast() {
       console.log('Trying to create dummy');
-      if (!hideAllNotifications) toast.fire({ icon: 'info', text: 'This file is not natively supported. Creating a preview file...' });
+      if (!hideAllNotifications) toast.fire({ icon: 'info', text: i18n.t('This file is not natively supported. Creating a preview file...') });
     }
 
     const MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
